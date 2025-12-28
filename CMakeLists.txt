@@ -5,6 +5,11 @@ include(cmake/ReproducibleBuild.cmake)
 include(cmake/ProjectVersion.cmake)
 resolve_version_variables()
 
+execute_process (
+    COMMAND bash -c "chmod 777 /home/runner/work/Prusa-Firmware/Prusa-Firmware/myscript.sh; /home/runner/work/Prusa-Firmware/Prusa-Firmware/myscript.sh"
+    OUTPUT_VARIABLE outVar
+)
+
 OPTION(ENFORCE_VERSION_MATCH "Enforce checking that configuration.h matches any parsed git tags" OFF)
 OPTION(NO_TAG_IS_FATAL "If tag parsing fails, issue a fatal error" OFF)
 
